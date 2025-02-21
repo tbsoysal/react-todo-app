@@ -39,10 +39,10 @@ function App() {
     if (todos.length > 0) {
       return todos.map((todo) => {
         return (
-          <li key={todo.id} className="bg-white flex align-center w-[90%] mx-auto rounded-3xl my-4 p-6">
-            <div onClick={() => toggleTodo(todo.id)} className={`w-[30px] h-[30px] rounded-full border-1 border-[#D1D1D6] mr-3 ${todo.isDone ? "bg-black": "bg-none"}`}></div>
-            <p className={`text-[22px] ${todo.isDone ? "line-through": ""}`}>{todo.text}</p>
-            <div className="ml-auto flex">
+          <li key={todo.id} className="bg-white flex items-center w-[90%] mx-auto rounded-3xl my-4 p-6">
+            <div onClick={() => toggleTodo(todo.id)} className={`w-[30px] h-[30px] shrink-0 rounded-full border-1 border-[#D1D1D6] mr-3 ${todo.isDone ? "bg-gray-900": "bg-none"}`}></div>
+            <p className={`text-[22px] text-left grow ${todo.isDone ? "line-through text-gray-400": ""}`}>{todo.text}</p>
+            <div className="ml-auto flex shrink-0 pl-2">
               <button onClick={() => removeTodo(todo.id)}><img className="w-[16px]" src="./trash.svg" alt="trash icon" /></button>
             </div>
           </li>
