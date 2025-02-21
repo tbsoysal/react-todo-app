@@ -31,6 +31,10 @@ function App() {
     );
   };
 
+   const removeTodo = (id: number) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
   function listTodos() {
     if (todos.length > 0) {
       return todos.map((todo) => {
@@ -39,8 +43,7 @@ function App() {
             <div onClick={() => toggleTodo(todo.id)} className={`w-[30px] h-[30px] rounded-full border-1 border-[#D1D1D6] mr-3 ${todo.isDone ? "bg-black": "bg-none"}`}></div>
             <p className={`text-[22px] ${todo.isDone ? "line-through": ""}`}>{todo.text}</p>
             <div className="ml-auto flex">
-              <button><img className="w-[16px]" src="./trash.svg" alt="trash icon" /></button>
-              <button><img className="w-[16px] ml-4" src="./pen.svg" alt="" /></button>
+              <button onClick={() => removeTodo(todo.id)}><img className="w-[16px]" src="./trash.svg" alt="trash icon" /></button>
             </div>
           </li>
         );
