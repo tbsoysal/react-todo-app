@@ -13,6 +13,7 @@ const List: React.FC<Props> = ({ todos, setTodos }) => {
       {todos.map((currTodo: TodoItem) => {
         return (
           <Todo
+            key={currTodo.id}
             id={currTodo.id}
             text={currTodo.text}
             isCompleted={currTodo.isCompleted}
