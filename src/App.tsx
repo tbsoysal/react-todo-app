@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Form from "./Form";
-import List from "./List";
-import TodoItem from "./TodoItem.tsx";
+import Form from "./components/Form";
+import List from "./components/List";
+import TodoItem from "./components/TodoItem.tsx";
 
 const App = () => {
   const [todoText, setTodoText] = useState("");
