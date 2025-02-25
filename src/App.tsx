@@ -14,7 +14,12 @@ const App = () => {
         <p className="text-[#8E8E93] text-lg">Your tasks for today</p>
       </div>
       <Form todoText={todoText} setTodoText={setTodoText} setTodos={setTodos} />
-      <List todos={todos} setTodos={setTodos} />
+      <List
+        todoText={todoText}
+        setTodoText={setTodoText}
+        todos={todos}
+        setTodos={setTodos}
+      />
     </>
   );
 };

@@ -4,22 +4,16 @@ import Todo from "./Todo";
 
 interface Props {
   todos: TodoItem[];
+  todoText: string;
   setTodos: React.Dispatch<React.SetStateAction<TodoItem[]>>;
+  setTodoText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const List: React.FC<Props> = ({ todos, setTodos }) => {
+const List: React.FC<Props> = (props) => {
   return (
     <ul className="my-10">
-      {todos.map((currTodo: TodoItem) => {
-        return (
-          <Todo
-            key={currTodo.id}
-            id={currTodo.id}
-            text={currTodo.text}
-            isCompleted={currTodo.isCompleted}
-            setTodos={setTodos}
-          />
-        );
+      {props.todos.map((currTodo: TodoItem) => {
+        return <Todo key={currTodo.id} {...currTodo} {...props} />;
       })}
     </ul>
   );

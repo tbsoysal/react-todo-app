@@ -15,6 +15,7 @@ const Form: React.FC<Props> = ({ todoText, setTodoText, setTodos }) => {
         id: Date.now(),
         text: inputText.replace(/\s+/g, " ").trim(),
         isCompleted: false,
+        isEditing: false,
       };
     }
   }

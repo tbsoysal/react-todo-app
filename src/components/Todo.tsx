@@ -1,20 +1,45 @@
+import React from "react";
+import { useState } from "react";
 import TodoItem from "./TodoItem";
 
 interface TodoProps extends TodoItem {
   setTodos: React.Dispatch<React.SetStateAction<TodoItem[]>>;
 }
 
-const Todo = ({ id, text, isCompleted, setTodos }: TodoProps) => {
+const Todo = ({ id, text, isCompleted, isEditing, setTodos }: TodoProps) => {
+  const [newText, setNewText] = useState(text);
+
+  // Deletes the todo object from the array
   const deleteTodo = () => {
     setTodos((prev: TodoItem[]) => {
       return prev.filter((todo: TodoItem) => todo.id !== id);
     });
   };
 
+  // changes the isCompleted property
   const toggleCompleted = () => {
     setTodos((prev) =>
       prev.map((todo) => {
         if (todo.id === id) return { ...todo, isCompleted: !todo.isCompleted };
+        return todo;
+      }),
+    );
+  };
+
+  const editTodo = () => {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id) return { ...todo, isEditing: !todo.isEditing };
+        return todo;
+      }),
+    );
+  };
+
+  const saveEdit = () => {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id)
+          return { ...todo, text: newText, isEditing: !todo.isEditing };
         return todo;
       }),
     );
@@ -26,16 +51,29 @@ const Todo = ({ id, text, isCompleted, setTodos }: TodoProps) => {
         className={`${isCompleted ? "bg-black" : "bg-transparent"} w-6 h-6 border-[#D1D1D6] shrink-0 rounded-full border mr-3 cursor-pointer`}
         onClick={toggleCompleted}
       ></button>
-      <p
-        className={`${isCompleted ? "line-through text-gray-700 italic" : "no-underline"} text-lg text-start`}
-      >
-        {text}
-      </p>
+      {isEditing ? (
+        <input
+          className="text-lg block w-[100%] grow outline-0"
+          type="text"
+          value={newText}
+          onChange={(e) => setNewText(e.target.value)}
+          autoFocus
+        />
+      ) : (
+        <p
+          className={`${isCompleted ? "line-through text-gray-700 italic" : "no-underline"} grow text-lg text-start`}
+        >
+          {text}
+        </p>
+      )}
       <button
-        className="ml-auto shrink-0 pl-3 cursor-pointer"
-        onClick={deleteTodo}
+        className="shrink-0 p-2 cursor-pointer"
+        onClick={() => (isEditing ? saveEdit() : editTodo())}
       >
-        <img className="w-3" src="./trash.svg" />
+        <img className="w-4" src={isEditing ? "./tick.svg" : "./pen.svg"} />
+      </button>
+      <button className="shrink-0 p-2 cursor-pointer" onClick={deleteTodo}>
+        <img className="w-4" src="./trash.svg" />
       </button>
     </li>
   );
