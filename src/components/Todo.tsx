@@ -7,9 +7,8 @@ interface TodoProps extends TodoItem {
 }
 
 const Todo = ({ id, text, isCompleted, isEditing, setTodos }: TodoProps) => {
-  const [newText, setNewText] = useState(text);
-
-  // Deletes the todo object from the array
+  // State for the editting text
+  const [newText, setNewText] = useState(text); // Deletes the todo object from the array
   const deleteTodo = () => {
     setTodos((prev: TodoItem[]) => {
       return prev.filter((todo: TodoItem) => todo.id !== id);
@@ -26,6 +25,7 @@ const Todo = ({ id, text, isCompleted, isEditing, setTodos }: TodoProps) => {
     );
   };
 
+  // Change the isEditing property to true/false
   const editTodo = () => {
     setTodos((prev) =>
       prev.map((todo) => {
@@ -35,6 +35,7 @@ const Todo = ({ id, text, isCompleted, isEditing, setTodos }: TodoProps) => {
     );
   };
 
+  // Change the text property of the todo and isEditing property to false
   const saveEdit = () => {
     setTodos((prev) =>
       prev.map((todo) => {
@@ -61,6 +62,7 @@ const Todo = ({ id, text, isCompleted, isEditing, setTodos }: TodoProps) => {
         />
       ) : (
         <p
+          onClick={toggleCompleted}
           className={`${isCompleted ? "line-through text-gray-700 italic" : "no-underline"} grow text-lg text-start`}
         >
           {text}

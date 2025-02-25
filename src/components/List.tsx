@@ -1,4 +1,3 @@
-import React from "react";
 import TodoItem from "./TodoItem";
 import Todo from "./Todo";
 
@@ -7,16 +6,21 @@ interface Props {
   todoText: string;
   setTodos: React.Dispatch<React.SetStateAction<TodoItem[]>>;
   setTodoText: React.Dispatch<React.SetStateAction<string>>;
+  menuIndex: number;
 }
 
 const List: React.FC<Props> = (props) => {
-  return (
-    <ul className="my-10">
-      {props.todos.map((currTodo: TodoItem) => {
-        return <Todo key={currTodo.id} {...currTodo} {...props} />;
-      })}
-    </ul>
-  );
+  function createList(index: number) {
+    let list: TodoItem[] = [];
+    if (index === 0) list = props.todos;
+    if (index === 1) list = props.todos.filter((todo) => !todo.isCompleted);
+    if (index === 2) list = props.todos.filter((todo) => todo.isCompleted);
+
+    return list.map((currTodo) => (
+      <Todo key={currTodo.id} {...currTodo} {...props} />
+    ));
+  }
+  return <ul className="my-10">{createList(props.menuIndex)}</ul>;
 };
 
 export default List;

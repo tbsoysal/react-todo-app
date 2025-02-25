@@ -36,6 +36,9 @@ const Form: React.FC<Props> = ({ todoText, setTodoText, setTodos }) => {
         type="text"
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") addNewTodo(createTodo(todoText));
+        }}
       />
       <button
         className="w-10 h-10 bg-[#007AFF] border-0 rounded-full text-2xl text-white text-extrabold cursor-pointer"

@@ -2,10 +2,12 @@ import { useState } from "react";
 import Form from "./components/Form";
 import List from "./components/List";
 import TodoItem from "./components/TodoItem.tsx";
+import FooterMenu from "./components/FooterMenu.tsx";
 
 const App = () => {
   const [todoText, setTodoText] = useState("");
   const [todos, setTodos] = useState<TodoItem[]>([]);
+  const [menuIndex, setMenuIndex] = useState<number>(0);
 
   return (
     <>
@@ -19,7 +21,9 @@ const App = () => {
         setTodoText={setTodoText}
         todos={todos}
         setTodos={setTodos}
+        menuIndex={menuIndex}
       />
+      <FooterMenu menuIndex={menuIndex} setMenuIndex={setMenuIndex} />
     </>
   );
 };

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 * {
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: "SF Pro Display", sans-serif;
 }
 
 body {
-  @apply min-h-screen bg-[#f5f5f7] text-center;
+  @apply bg-[#f5f5f7] text-center;
 }
