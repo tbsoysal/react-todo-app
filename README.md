@@ -1,8 +1,11 @@
-React + TypeScript Todo List
+# React + TypeScript Todo List
 
 This is a simple Todo List application built using React and TypeScript. The project was created to learn the basics of React and TypeScript, including state management, event handling, and localStorage integration.
 
-Features
+# Live Link
+https://tbsoysal.github.io/react-todo-app/
+
+# Features
 
 ✅ Add new todos
 
@@ -16,20 +19,22 @@ Features
 
 🔄 Filter tasks (All, Completed, Pending)
 
-Design
+# Design
 
 🎨 The UI design was created by me using Figma
 
 🎨 Colors were chosen with the help of ChatGPT
 
-Installation & Setup
+<img width="393" alt="iPhone 16 - 1@2x" src="https://github.com/user-attachments/assets/32741d72-0a26-4459-8f31-335518717ffe" />
+
+# Installation & Setup
 
 Clone the repository
 
 git clone https://github.com/yourusername/react-ts-todo.git
 cd react-ts-todo
 
-Install dependencies
+## Install dependencies
 
 npm install
 
@@ -37,7 +42,7 @@ npm install
 
 yarn install
 
-Start the development server
+## Start the development server
 
 npm run dev
 
@@ -45,10 +50,10 @@ npm run dev
 
 yarn dev
 
-Open in browser
+## Open in browser
 The app will be available at http://localhost:5173/ (or another port if 5173 is occupied).
 
-Technologies Used
+# Technologies Used
 
 ⚡ Vite – Fast build tool for modern web apps
 
@@ -62,7 +67,7 @@ Technologies Used
 
 🎨 Figma – Used to design the UI
 
-Future Improvements
+# Future Improvements
 
 🔍 Search and filter todos with advanced features
 
