@@ -34,23 +34,23 @@ Clone the repository
 git clone https://github.com/tbsoysal/react-todo-app.git
 cd react-todo-app
 
-# Install dependencies
+Install dependencies
 
 npm install
 
-# or
+or
 
 yarn install
 
-# Start the development server
+Start the development server
 
 npm run dev
 
-# or
+or
 
 yarn dev
 
-# Open in browser
+Open in browser
 The app will be available at http://localhost:5173/ (or another port if 5173 is occupied).
 
 # Technologies Used
