@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+React + TypeScript Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple Todo List application built using React and TypeScript. The project was created to learn the basics of React and TypeScript, including state management, event handling, and localStorage integration.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Add new todos
 
-## Expanding the ESLint configuration
+📝 Edit existing todos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+❌ Delete todos
 
-- Configure the top-level `parserOptions` property like this:
+📌 Mark todos as completed
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+💾 Persist todos in localStorage
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+🔄 Filter tasks (All, Completed, Pending)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Design
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+🎨 The UI design was created by me using Figma
+
+🎨 Colors were chosen with the help of ChatGPT
+
+Installation & Setup
+
+Clone the repository
+
+git clone https://github.com/yourusername/react-ts-todo.git
+cd react-ts-todo
+
+Install dependencies
+
+npm install
+
+# or
+
+yarn install
+
+Start the development server
+
+npm run dev
+
+# or
+
+yarn dev
+
+Open in browser
+The app will be available at http://localhost:5173/ (or another port if 5173 is occupied).
+
+Technologies Used
+
+⚡ Vite – Fast build tool for modern web apps
+
+⚛️ React – UI library for building the interface
+
+🦺 TypeScript – Type safety and improved development experience
+
+🎨 Tailwind CSS – Styling framework for faster UI design
+
+💾 localStorage – Data persistence across sessions
+
+🎨 Figma – Used to design the UI
+
+Future Improvements
+
+🔍 Search and filter todos with advanced features
+
+📅 Due dates and reminders
+
+🎨 Dark mode support
