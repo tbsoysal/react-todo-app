@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import List from "./components/List";
 import TodoItem from "./components/TodoItem.tsx";
@@ -6,8 +6,17 @@ import FooterMenu from "./components/FooterMenu.tsx";
 
 const App = () => {
   const [todoText, setTodoText] = useState("");
-  const [todos, setTodos] = useState<TodoItem[]>([]);
   const [menuIndex, setMenuIndex] = useState<number>(0);
+  const [todos, setTodos] = useState<TodoItem[]>(() => {
+    // Load from localStorage on mount
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  // Save todos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <>
