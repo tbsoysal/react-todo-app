@@ -1,4 +1,4 @@
-# React + TypeScript Todo List
+# React Todo List
 
 This is a simple Todo List application built using React and TypeScript. The project was created to learn the basics of React and TypeScript, including state management, event handling, and localStorage integration.
 
